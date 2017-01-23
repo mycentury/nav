@@ -1,0 +1,62 @@
+@CHARSET "UTF-8";
+
+body{
+	margin-top: 70px;
+	margin-bottom: 200px;
+}
+
+ul.list{
+	list-style: none;
+	padding-left: 0px;
+}
+
+canvas {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+span.ball{
+	width: 21px;
+	height: 21px;
+	line-height: 20px;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+	display: inline-block;
+}
+
+span.redball{
+	background: url(/img/ball_bg.gif) 0 0 no-repeat;
+}
+
+span.blueball{
+	background: url(/img/ball_bg.gif) -21px 0 no-repeat;
+}
+
+.carousel-control{
+    top: 40%;
+    left: 0px;
+    width: 45px;
+    height: 45px;
+    line-height: 30px;
+    font-size: 50px;
+    color: #fff;
+    border: 3px solid #ffffff;
+    background: #222222;
+    border-radius: 23px;
+    -webkit-border-radius: 23px;
+    opacity: 0.25;
+}
+
+.carousel-caption {
+    text-align: left;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.carousel-indicators {
+    margin-bottom: -20px;
+}
