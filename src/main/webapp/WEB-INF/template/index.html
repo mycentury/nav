@@ -5,6 +5,8 @@
 	<div th:include="/common/meta :: meta" th:remove="tag"></div>
 	<title>666导航站</title>
 	<base target="_blank" />
+	<link href="/video/css/video-js.min.css" rel="stylesheet" />
+	<script src="/video/js/video.min.js"></script>
 </head>
 <body th:with="menu='HOME'" th:inline="text">
 
@@ -23,9 +25,17 @@
 		
 		<div class="row">
 			<div class="col-md-12">
+				<video id="my-player"
+				    class="video-js"
+				    controls="controls"
+				    preload="auto"
+				    poster="http://vjs.zencdn.net/v/oceans.png"
+				    data-setup='{}'>
+				  <source src="/temp/1494398898905.mp4" type="video/mp4"></source>
+				</video>
 				<div id="willesPlay">
 					<div class="playHeader">
-						<div class="videoName">Tara - 懂的那份感觉</div>
+						<div class="videoName"></div>
 					</div>
 					<div class="playContent">
 						<div class="turnoff">
@@ -36,7 +46,7 @@
 							</ul>
 						</div>
 						<video width="100%" height="100%" id="playVideo">
-							<source src="/temp/中秋寻月-预告片.mp4" type="video/mp4"></source>
+							<source src="http://localhost:8580/file/source.mp4" type="video/mp4"></source>
 							当前浏览器不支持 video直接播放，点击这里下载视频： <a href="/">下载视频</a>
 						</video>
 						<div class="playTip glyphicon glyphicon-play"></div>

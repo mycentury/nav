@@ -1,5 +1,5 @@
 $(function() {
-	var playVideo = $('video');
+	var playVideo = $('#playVideo');
 	var playPause = $('.playPause'); // 播放和暂停
 	var currentTime = $('.timebar .currentTime'); // 当前时间
 	var duration = $('.timebar .duration'); // 总时间
@@ -30,12 +30,10 @@ $(function() {
 
 	playVideo.on('timeupdate', function() {
 		currentTime.text(formatSeconds(playVideo[0].currentTime));
-		progress.css('width', 100 * playVideo[0].currentTime
-				/ playVideo[0].duration + '%');
+		progress.css('width', 100 * playVideo[0].currentTime / playVideo[0].duration + '%');
 	});
 	playVideo.on('ended', function() {
-		$('.playTip').removeClass('glyphicon-pause').addClass('glyphicon-play')
-				.fadeIn();
+		$('.playTip').removeClass('glyphicon-pause').addClass('glyphicon-play').fadeIn();
 		playPause.toggleClass('playIcon');
 	});
 
@@ -177,32 +175,25 @@ $(function() {
 	function volumeControl(e) {
 		e = e || window.event;
 		var eventype = e.type;
-		var delta = (e.originalEvent.wheelDelta && (e.originalEvent.wheelDelta > 0 ? 1
-				: -1))
-				|| (e.originalEvent.detail && (e.originalEvent.detail > 0 ? -1
-						: 1));
+		var delta = (e.originalEvent.wheelDelta && (e.originalEvent.wheelDelta > 0 ? 1 : -1))
+				|| (e.originalEvent.detail && (e.originalEvent.detail > 0 ? -1 : 1));
 		var positions = 0;
 		var percentage = 0;
 		if (eventype == "click") {
 			positions = volumebar.offset().top - e.pageY;
-			percentage = 100 * (positions + volumebar.height())
-					/ $('.volumeBar .volumewrap').height();
+			percentage = 100 * (positions + volumebar.height()) / $('.volumeBar .volumewrap').height();
 		} else if (eventype == "mousewheel" || eventype == "DOMMouseScroll") {
-			percentage = 100 * (volumebar.height() + delta)
-					/ $('.volumeBar .volumewrap').height();
+			percentage = 100 * (volumebar.height() + delta) / $('.volumeBar .volumewrap').height();
 		}
 		if (percentage < 0) {
 			percentage = 0;
-			$('.otherControl .volume').attr('class',
-					'volume glyphicon glyphicon-volume-off');
+			$('.otherControl .volume').attr('class', 'volume glyphicon glyphicon-volume-off');
 		}
 		if (percentage > 50) {
-			$('.otherControl .volume').attr('class',
-					'volume glyphicon glyphicon-volume-up');
+			$('.otherControl .volume').attr('class', 'volume glyphicon glyphicon-volume-up');
 		}
 		if (percentage > 0 && percentage <= 50) {
-			$('.otherControl .volume').attr('class',
-					'volume glyphicon glyphicon-volume-down');
+			$('.otherControl .volume').attr('class', 'volume glyphicon glyphicon-volume-down');
 		}
 		if (percentage >= 100) {
 			percentage = 100;
@@ -217,12 +208,10 @@ $(function() {
 		playPause.toggleClass('playIcon');
 		if (playVideo[0].paused) {
 			playVideo[0].play();
-			$('.playTip').removeClass('glyphicon-play').addClass(
-					'glyphicon-pause').fadeOut();
+			$('.playTip').removeClass('glyphicon-play').addClass('glyphicon-pause').fadeOut();
 		} else {
 			playVideo[0].pause();
-			$('.playTip').removeClass('glyphicon-pause').addClass(
-					'glyphicon-play').fadeIn();
+			$('.playTip').removeClass('glyphicon-pause').addClass('glyphicon-play').fadeIn();
 		}
 	}
 	// 关灯
